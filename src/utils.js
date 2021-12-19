@@ -10,8 +10,9 @@ const handleUserMessaging = (githubUserData, payload) => {
             if(payload.sender.id.toString() !== githubUserData.githubUserID){
                 let requesterUserName = payload.sender.login
                 let prUrl = payload.pull_request.html_url
-                let prMessage = pullRequestMessage(githubUserData.slackUserID, requesterUserName, prUrl)
-                sendSlackMessage(githubUserData.slackBotToken, githubUserData.slackUserID, prMessage)
+                let prBlockMessage = pullRequestMessage(githubUserData.slackUserID, requesterUserName, prUrl, payload)[0]
+                let prTextMessage = pullRequestMessage(githubUserData.slackUserID, requesterUserName, prUrl, payload)[1]
+                sendSlackMessage(githubUserData.slackBotToken, githubUserData.slackUserID, prBlockMessage, prTextMessage)
             }
             break;
     }

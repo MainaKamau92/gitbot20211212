@@ -27,7 +27,7 @@ module.exports = (app, { getRouter }) => {
   router.use(app_express);
 
   app.log.info(`Server started at ${new Date()}`);
-  app.on(['pull_request.review_requested', 'pull_request.synchronize'], async (context) => routeUserMessaging(context))
+  app.on(['pull_request.review_requested'], async (context) => routeUserMessaging(context))
 
 
 
@@ -68,6 +68,10 @@ module.exports = (app, { getRouter }) => {
       console.error(error)
       res.render("error");
     })
+  })
+
+  router.post("/slack/events", (req, res) => {
+    console.log(res)
   })
 
 
