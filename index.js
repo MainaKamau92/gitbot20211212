@@ -27,7 +27,8 @@ module.exports = (app, { getRouter }) => {
   router.use(app_express);
 
   app.log.info(`Server started at ${new Date()}`);
-  app.on(['pull_request.review_requested'], async (context) => routeUserMessaging(context))
+  app.on(['pull_request'], async (context) => routeUserMessaging(context, 'pull_request'))
+  app.on('issues', async (context) => routeUserMessaging(context, 'issues'))
 
 
 

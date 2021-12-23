@@ -1,30 +1,26 @@
 const {githubUserQuery} = require('../db/queries');
-const {sendSlackMessage} = require("./slack");
-const {pullRequestMessage} = require("./slack_messages");
+const { handlePullRequests, handleIssues } = require('./_api');
 
 
 
-const handleUserMessaging = (githubUserData, payload) => {
-    switch(payload.action) {
-        case 'review_requested':
-            if(payload.sender.id.toString() !== githubUserData.githubUserID){
-                let requesterUserName = payload.sender.login
-                let prUrl = payload.pull_request.html_url
-                let prBlockMessage = pullRequestMessage(githubUserData.slackUserID, requesterUserName, prUrl, payload)[0]
-                let prTextMessage = pullRequestMessage(githubUserData.slackUserID, requesterUserName, prUrl, payload)[1]
-                sendSlackMessage(githubUserData.slackBotToken, githubUserData.slackUserID, prBlockMessage, prTextMessage)
-            }
+const handleUserMessaging = (githubUserData, payload, contextAction) => {
+    switch(contextAction) {
+        case 'pull_request':
+            handlePullRequests(payload, githubUserData);
+            break;
+        case 'issues':
+            handleIssues(payload, githubUserData);
             break;
     }
 }
 
-const routeUserMessaging = (context) => {
+const routeUserMessaging = (context, contextAction) => {
     let payload = context.payload
     const installationID = payload.installation.id
     const githubUser = githubUserQuery(installationID)
     githubUser.then(data => {
         let githubUserData = data[0]
-        handleUserMessaging(githubUserData, payload)
+        handleUserMessaging(githubUserData, payload, contextAction)
     })
     .catch(err => {
         console.error(err)

@@ -4,14 +4,13 @@ const {App} = require("@slack/bolt");
 const appInstance = (slackBotToken) => new App({ token: slackBotToken, signingSecret: process.env.SLACK_SIGNING_SECRET });
 
 
-const sendSlackMessage = (slackBotToken, slackUserID, blockMessage, textMessage, channel=null,) => {
-    debugger;
+const sendSlackMessage = (slackBotToken, blockMessage, textMessage, channelID, attachmentSection=null) => {
     const app = appInstance(slackBotToken)
-    console.log(JSON.parse(blockMessage).blocks)
     app.client.chat.postMessage({
         text: textMessage,
-        channel: channel !== null ? channel : slackUserID,
-        blocks: JSON.parse(blockMessage).blocks
+        channel: channelID,
+        blocks: blockMessage,
+        attachments: attachmentSection
     }).then(res => res).catch(err => console.error(err))
 }
 
