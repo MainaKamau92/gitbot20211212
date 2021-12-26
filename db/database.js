@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize_conn = new Sequelize('postgres://maina:mainakamau@localhost:5432/githubbot')
+const sequelize_conn = new Sequelize('postgres://user:password@localhost:5432/githubbot')
 sequelize_conn.authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
