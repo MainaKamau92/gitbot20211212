@@ -16,6 +16,7 @@ WEBHOOK_PROXY_URL=https://smee.io/7MNwSL9LZ1z63jJ8
 APP_ID=158111
 PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----fdrwerwerwerwer-----END RSA PRIVATE KEY-----\n" #you generate this from the Github app
 WEBHOOK_SECRET=xxxxxxxxxx #get from github as well
+
 #slack configs
 SLACK_SIGNING_SECRET=xxxxxxxxxx 
 SLACK_BOT_TOKEN=xoxb-xxxx-xxxx-xxx 
@@ -23,6 +24,7 @@ CLIENT_ID=xxxxx.xxxx
 CLIENT_SECRET=0000000xxxx0000 
 REDIRECT_URI=https://xxxxx.ngrok.io/github-bot/done
 SLACK_OAUTH=https://slack.com/api/oauth.v2.access
+
 #configs for the DB(postgres)
 DB_USER=xxxx 
 DB_PASSWORD=xxxx
@@ -31,8 +33,8 @@ DB_NAME=xxxx
 
 ### What can this app do:
 
-- [x] Send slack notification when an issue is opened and closed with details
-- [x] Send slack notification when asssigned a PR
+- [x]  Send slack notification when an issue is opened and closed with details
+- [x]  Send slack notification when asssigned a PR
 
 
 ### Support or Contact
