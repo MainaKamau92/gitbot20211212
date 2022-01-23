@@ -1,37 +1,41 @@
-## Welcome to GitHub Pages
+## Welcome to gitbot20211212
 
-You can use the [editor on GitHub](https://github.com/MainaKamau92/gitbot20211212/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+gitbot20211212 is a github app built with the Probot framework and linking with Slack. It functions pretty much, the same way the official github slack app does.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Setting up
+- Create a Github app
+- Clone the Repo locally and install all required packages with either yarn or npm
+- The probot framework should handle a good chuck of the setup for you. if lost check there site
+- Create a slack app and fetch all thre required configs
+- Authorize on github by installing the Github app
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+Your `.env` file should look something similar to this:
+```
+#github configs
+WEBHOOK_PROXY_URL=https://smee.io/7MNwSL9LZ1z63jJ8
+APP_ID=158111
+PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----fdrwerwerwerwer-----END RSA PRIVATE KEY-----\n" #you generate this from the Github app
+WEBHOOK_SECRET=xxxxxxxxxx #get from github as well
+#slack configs
+SLACK_SIGNING_SECRET=xxxxxxxxxx 
+SLACK_BOT_TOKEN=xoxb-xxxx-xxxx-xxx 
+CLIENT_ID=xxxxx.xxxx 
+CLIENT_SECRET=0000000xxxx0000 
+REDIRECT_URI=https://xxxxx.ngrok.io/github-bot/done
+SLACK_OAUTH=https://slack.com/api/oauth.v2.access
+#configs for the DB(postgres)
+DB_USER=xxxx 
+DB_PASSWORD=xxxx
+DB_NAME=xxxx
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+### What can this app do:
 
-### Jekyll Themes
+[x] Send slack notification when an issue is opened and closed with details
+[x] Send slack notification when asssigned a PR
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MainaKamau92/gitbot20211212/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+[x] [LinkedIn](https://www.linkedin.com/in/kamau-maina-7b6a1b178/)
+[x] [Email](lewiikamaa8@gamil.com)
