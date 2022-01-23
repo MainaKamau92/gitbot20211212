@@ -31,11 +31,11 @@ DB_NAME=xxxx
 
 ### What can this app do:
 
-[x] Send slack notification when an issue is opened and closed with details
-[x] Send slack notification when asssigned a PR
+[ x ] Send slack notification when an issue is opened and closed with details
+[ x ] Send slack notification when asssigned a PR
 
 
 ### Support or Contact
 
-[x] [LinkedIn](https://www.linkedin.com/in/kamau-maina-7b6a1b178/)
-[x] [Email](lewiikamaa8@gamil.com)
+[ x ] [LinkedIn](https://www.linkedin.com/in/kamau-maina-7b6a1b178/)
+- Email : lewiikamaa8@gamil.com)
