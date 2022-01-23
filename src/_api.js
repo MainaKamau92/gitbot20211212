@@ -1,5 +1,5 @@
 const { sendSlackMessage } = require("./slack")
-const { pullRequestMessage, issueOpenedMessage, issueClosedMessage } = require("./slack_messages")
+const { pullRequestMessage, issueOpenedMessage, issueClosedMessage, pullRequestAssignedMessage } = require("./slack_messages")
 
 
 const handlePullRequests = (payload, githubUserData) => {
@@ -15,6 +15,14 @@ const handlePullRequests = (payload, githubUserData) => {
                 console.error("User is requesting their own review!")
             }
             break;
+        case 'assigned':
+            let assignedPRBlockMessage = pullRequestAssignedMessage(payload)[0]
+            let assignedPRTextMessage = pullRequestAssignedMessage(payload)[1]
+            let assignedPRAttachmentBlock = pullRequestAssignedMessage(payload)[2]
+            sendSlackMessage(slackBotToken=githubUserData.slackBotToken, blockMessage=assignedPRBlockMessage,
+                textMessage=assignedPRTextMessage, channelID=githubUserData.slackUserID, attachmentSection=assignedPRAttachmentBlock)
+            break;
+
     }
 }
 
