@@ -37,5 +37,5 @@ DB_NAME=xxxx
 
 ### Support or Contact
 
-- [x] [LinkedIn](https://www.linkedin.com/in/kamau-maina-7b6a1b178/)
-- Email : lewiikamaa8@gamil.com
+- LinkedIn: [Maina](https://www.linkedin.com/in/kamau-maina-7b6a1b178/)
+- Email: lewiikamaa8@gamil.com
